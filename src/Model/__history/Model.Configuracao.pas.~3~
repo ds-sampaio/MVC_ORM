@@ -1,0 +1,134 @@
+unit Model.Configuracao;
+
+interface
+
+uses
+  LocalCache4D,
+  Model.Interfaces;
+
+type
+ TConfiguracao = class(TInterfacedObject, iConfiguracao)
+   private
+   public
+     constructor Create;
+     destructor Destroy; override;
+     class function New : iConfiguracao;
+     function DriverID(aParam:  String): iConfiguracao ; overload;
+     function DriverID: iConfiguracao; overload;
+     function DataBase(aParam:  String): iConfiguracao ; overload;
+     function DataBase: iConfiguracao ; overload;
+     function UserName(aParam:  String): iConfiguracao ; overload;
+     function UserName: iConfiguracao ; overload;
+     function Password(aParam:  String): iConfiguracao ; overload;
+     function Password: iConfiguracao ; overload;
+     function Port(aParam:  String): iConfiguracao ; overload;
+     function Port: iConfiguracao ; overload;
+     function Server(aParam:  String): iConfiguracao ; overload;
+     function Server: iConfiguracao ; overload;
+     function Schema(aParam:  String): iConfiguracao ; overload;
+     function SchemaID: iConfiguracao ; overload;
+     function Locking(aParam : String): iConfiguracao ; overload;
+     function Locking: iConfiguracao ; overload;
+ end;
+
+implementation
+
+{ TConfiguracao }
+
+constructor TConfiguracao.Create;
+begin
+
+end;
+
+function TConfiguracao.DataBase: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.DataBase(aParam: String): iConfiguracao;
+begin
+
+end;
+
+destructor TConfiguracao.Destroy;
+begin
+
+  inherited;
+end;
+
+function TConfiguracao.DriverID: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.DriverID(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Locking(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Locking: iConfiguracao;
+begin
+
+end;
+
+class function TConfiguracao.New: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Password: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Password(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Port(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Port: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Schema(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.SchemaID: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Server(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.Server: iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.UserName(aParam: String): iConfiguracao;
+begin
+
+end;
+
+function TConfiguracao.UserName: iConfiguracao;
+begin
+
+end;
+
+end.

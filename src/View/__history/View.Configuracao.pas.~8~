@@ -1,0 +1,54 @@
+unit View.Configuracao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Model.Interfaces,
+  controller.controller, controller.interfaces;
+
+type
+  TfrmConfiguracao = class(TForm)
+    Label1: TLabel;
+    edtTipo: TEdit;
+    Label2: TLabel;
+    edtPath: TEdit;
+    Edit1: TEdit;
+    Label3: TLabel;
+    edtPassword: TEdit;
+    Label4: TLabel;
+    edtPorta: TEdit;
+    Label5: TLabel;
+    edtSchema: TEdit;
+    Label6: TLabel;
+    edtLocking: TEdit;
+    Label7: TLabel;
+    edtServidor: TEdit;
+    Label8: TLabel;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+    FController : iController;
+    procedure CarregarDados;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmConfiguracao: TfrmConfiguracao;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmConfiguracao.CarregarDados;
+begin
+  edtTipo.Text := FController.Configuracao.DriverID;
+end;
+
+procedure TfrmConfiguracao.FormCreate(Sender: TObject);
+begin
+  FController := TController.New;
+end;
+
+end.

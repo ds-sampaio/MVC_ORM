@@ -1,0 +1,22 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2023-05-27T11:36:55.9980343-03:00",
+	"installedModules": {
+		"https://github.com/academiadocodigo/localcache4d": {
+			"name": "localcache4d",
+			"version": "1.0.4",
+			"hash": "78a7747cc7f2f79822d67610672800a5",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/academiadocodigo/simpleorm": {
+			"name": "simpleorm",
+			"version": "2.02.10",
+			"hash": "75aebbc9d46f7ec63a6fba7640e3c1e0",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}

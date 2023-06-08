@@ -1,0 +1,34 @@
+unit Model.ItensPedido;
+
+interface
+
+uses
+  SimpleAttributes;
+
+type
+
+  [Tabela('ITENS_PEDIDOS')]
+  TItensPedidos = class
+    private
+    Fid: integer;
+    FidItem: integer;
+    Fvalor: double;
+    Fquantidade: integer;
+    FidPedido: integer;
+    public
+      property id: integer read Fid write Fid;
+      property idItem: integer read FidItem write FidItem;
+      property valor: double read Fvalor write Fvalor;
+      property quantidade: integer read Fquantidade write Fquantidade;
+      property idPedido: integer read FidPedido write FidPedido;
+  end;
+
+{id
+item
+valor
+quantidade
+idpedido}
+
+implementation
+
+end.

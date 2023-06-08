@@ -1,0 +1,51 @@
+unit Dao.ConexaoFiredac;
+
+interface
+
+uses
+  Data.DB,
+  Model.Interfaces,
+  System.SysUtils,
+  FireDAC.Comp.Client,
+  FireDAC.Phys.PGDef,
+  FireDAC.Phys.PG,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Def;
+
+type
+  TConexao = class(TInterfacedObject, iConexao)
+     private
+       FConnection: TFDConnection;
+     public
+       constructor Create(Configuracao : iConfiguracao);
+       destructor Destroy; override;
+       class function New(Configuracao : iConfiguracao) : iConexao;
+       function Conneted : TCustomConnection;
+  end;
+
+implementation
+
+{ TConexao }
+
+function TConexao.Conneted: TCustomConnection;
+begin
+
+end;
+
+constructor TConexao.Create(Configuracao : iConfiguracao);
+begin
+  FConnection := TFDConnection.Create(nil);
+end;
+
+destructor TConexao.Destroy;
+begin
+  FConnection.DisposeOf;
+  inherited;
+end;
+
+class function TConexao.New(Configuracao : iConfiguracao) : iConexao;
+begin
+
+end;
+
+end.
