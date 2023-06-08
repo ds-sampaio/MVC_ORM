@@ -1,7 +1,10 @@
-/_history
-/recorvery
+/__history
+/__recorvery
 /View/__history
 /View/__recovery
 /controller/__history
 /controller/__recovery
+/controller/dto/__recovery
+/controller/dto/__history
+
 
