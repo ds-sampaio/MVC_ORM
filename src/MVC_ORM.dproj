@@ -137,6 +137,9 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="controller\dto\controller.dto.endereco.pas"/>
+        <DCCReference Include="Utils\Utils.FormatCustom.pas"/>
+        <DCCReference Include="controller\dto\controller.dto.pedido.pas"/>
+        <DCCReference Include="controller\dto\controller.dto.itenspedido.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

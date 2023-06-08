@@ -5,7 +5,8 @@ interface
 uses
   controller.interfaces, controller.dto.interfaces, Model.Interfaces,
   controller.dto.cliente, Model.Configuracao, controller.dto.pessoa,
-  controller.dto.produto, controller.dto.endereco;
+  controller.dto.produto, controller.dto.endereco, controller.dto.itenspedido,
+  controller.dto.pedido;
 
 type
   TController = class(TInterfacedObject, iController)
@@ -15,6 +16,8 @@ type
       FConfiguracao : iConfiguracao;
       FProduto      : iProduto;
       FEndereco     : iEndereco;
+      FPedido       : iPedido;
+      FItensPedido  : iItensPedido;
     public
       constructor Create;
       destructor Destroy; override;
@@ -24,6 +27,8 @@ type
       function Configuracao : iConfiguracao;
       function Produto : iProduto;
       function Endereco : iEndereco;
+      function Pedido : iPedido;
+      function ItensPedido : iItensPedido;
   end;
 
 implementation
@@ -62,9 +67,23 @@ begin
   Result := FEndereco;
 end;
 
+function TController.ItensPedido: iItensPedido;
+begin
+  if not Assigned(FItensPedido) then
+    FItensPedido := TItensPedidoDTO.New;
+  Result := FItensPedido;
+end;
+
 class function TController.New: iController;
 begin
   Result := Self.Create;
+end;
+
+function TController.Pedido: iPedido;
+begin
+  if not Assigned(FPedido) then
+    FPedido := TPedidoDTO.New;
+  Result := FPedido;
 end;
 
 function TController.Pessoa: iPessoa;

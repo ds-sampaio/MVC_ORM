@@ -12,6 +12,8 @@ type
     function Produto : iProduto;
     function Configuracao : iConfiguracao;
     function Endereco : iEndereco;
+    function Pedido : iPedido;
+    function ItensPedido : iItensPedido;
   end;
 
 implementation

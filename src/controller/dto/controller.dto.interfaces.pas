@@ -6,7 +6,7 @@ uses
   Dao.Interfaces.CRUD,
   Model.Cliente,
   Model.Pessoa,
-  Model.Produto, Model.Endereco;
+  Model.Produto, Model.Endereco, Model.Pedido, Model.ItensPedido;
 
 type
  iCliente = interface
@@ -56,11 +56,29 @@ type
  end;
 
  iPedido = interface
-
+    function id(aValue : Integer) : iPedido; overload;
+    function id: integer; overload;
+    function desconto(aValue : double) : iPedido; overload;
+    function desconto: double; overload;
+    function total(aValue : double) : iPedido; overload;
+    function total: double; overload;
+    function idCliente(aValue : Integer) : iPedido; overload;
+    function idCliente: integer; overload;
+    function Build : iCRUD<TPedido>;
  end;
 
  iItensPedido = interface
-
+    function id(aValue : Integer) : iItensPedido; overload;
+    function id: integer; overload;
+    function valor(aValue : double) : iItensPedido; overload;
+    function valor: double; overload;
+    function quantidade(aValue : Integer) : iItensPedido; overload;
+    function quantidade: integer; overload;
+    function idpedido(aValue : Integer) : iItensPedido; overload;
+    function idpedido: integer; overload;
+    function iditem(aValue : Integer) : iItensPedido; overload;
+    function iditem: integer; overload;
+    function Build : iCRUD<TItensPedidos>;
  end;
 
 

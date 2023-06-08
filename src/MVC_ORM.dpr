@@ -24,7 +24,10 @@ uses
   View.Produto in 'View\View.Produto.pas' {frmProduto},
   controller.dto.produto in 'controller\dto\controller.dto.produto.pas',
   View.Cliente in 'View\View.Cliente.pas' {frmCliente},
-  controller.dto.endereco in 'controller\dto\controller.dto.endereco.pas';
+  controller.dto.endereco in 'controller\dto\controller.dto.endereco.pas',
+  Utils.FormatCustom in 'Utils\Utils.FormatCustom.pas',
+  controller.dto.pedido in 'controller\dto\controller.dto.pedido.pas',
+  controller.dto.itenspedido in 'controller\dto\controller.dto.itenspedido.pas';
 
 {$R *.res}
 
