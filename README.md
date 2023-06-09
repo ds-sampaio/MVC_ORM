@@ -8,3 +8,6 @@ Utilizando também de
  - Generics
 
 Atenção: O projeto foi desenvolvido apenas como forma de conhecimento em SimpleORM e padrão MVC!
+
+# DUnit MVC_ORM
+Além disso, o projeto está em andamento com a implementação de testes unitários utilizando o DUnitX.
