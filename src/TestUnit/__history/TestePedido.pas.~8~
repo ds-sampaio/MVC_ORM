@@ -1,0 +1,57 @@
+unit TestePedido;
+
+interface
+
+uses
+  DUnitX.TestFramework,
+  View.Principal;
+
+type
+  [TestFixture]
+  TMyTestPedido = class
+  private
+    FPedido : TForm1;
+  public
+    [Setup]
+    procedure Setup;
+    [TearDown]
+    procedure TearDown;
+    // Sample Methods
+    // Simple single Test
+    [Test]
+    procedure SavePedidoVazio;
+    // Test with TestCase Attribute to supply parameters.
+    [Test]
+    [TestCase('TestA','1,2,2')]
+    [TestCase('TestB','3,4,12')]
+    procedure Test2(const AValue1 : Double;const AValue2 : Integer; const AValueEsperado : Double);
+  end;
+
+implementation
+
+procedure TMyTestPedido.Setup;
+begin
+  FPedido := TForm1.Create(nil);
+end;
+
+procedure TMyTestPedido.TearDown;
+begin
+  FPedido.Free;
+end;
+
+procedure TMyTestPedido.SavePedidoVazio;
+begin
+  Assert.WillRaise(FPedido.SavePedido,nil,'TForm1.SavePedido erro ao retornar exceção inserir pedido vazio')
+end;
+
+procedure TMyTestPedido.Test2(const AValue1 : Double;const AValue2 : Integer; const AValueEsperado : Double);
+begin
+
+  Assert.AreEqual<Currency>(AValueEsperado,FPedido.CalcularTotal(AValue1,AValue2), 'TForm1.CalcularTotal');
+
+end;
+
+initialization
+  TDUnitX.RegisterTestFixture(TMyTestPedido);
+
+end.

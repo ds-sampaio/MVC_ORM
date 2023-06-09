@@ -56,7 +56,7 @@ object Form1: TForm1
       Caption = '+ Cliente'
       TabOrder = 2
       OnClick = Button3Click
-      ExplicitLeft = 296
+      ExplicitLeft = 324
     end
   end
   object Panel2: TPanel
@@ -67,7 +67,8 @@ object Form1: TForm1
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 35
+    ExplicitWidth = 624
+    ExplicitHeight = 359
     object TPanel
       Left = 0
       Top = 0
@@ -76,6 +77,7 @@ object Form1: TForm1
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 624
       object Label1: TLabel
         Left = 16
         Top = 5
@@ -173,15 +175,13 @@ object Form1: TForm1
       Padding.Right = 10
       Padding.Bottom = 5
       TabOrder = 1
-      ExplicitLeft = 208
-      ExplicitTop = 176
-      ExplicitWidth = 185
-      ExplicitHeight = 41
+      ExplicitWidth = 624
+      ExplicitHeight = 246
       object DBGrid1: TDBGrid
         Left = 10
         Top = 5
         Width = 608
-        Height = 237
+        Height = 202
         Align = alClient
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -189,6 +189,53 @@ object Form1: TForm1
         TitleFont.Height = -12
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            Visible = True
+          end>
+      end
+      object Panel7: TPanel
+        Left = 10
+        Top = 207
+        Width = 608
+        Height = 35
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 1
+        ExplicitTop = 206
+        ExplicitWidth = 604
+        object Panel8: TPanel
+          Left = 423
+          Top = 0
+          Width = 185
+          Height = 35
+          Align = alRight
+          BevelOuter = bvNone
+          TabOrder = 0
+          ExplicitLeft = 419
+          object Label6: TLabel
+            Left = 33
+            Top = 10
+            Width = 27
+            Height = 15
+            Caption = 'Total'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object edtTotal: TEdit
+            Left = 63
+            Top = 6
+            Width = 121
+            Height = 23
+            TabOrder = 0
+            Text = '0.00'
+          end
+        end
       end
     end
   end
@@ -202,7 +249,8 @@ object Form1: TForm1
     Padding.Left = 10
     Padding.Right = 10
     TabOrder = 2
-    ExplicitTop = 402
+    ExplicitTop = 400
+    ExplicitWidth = 624
     object Panel5: TPanel
       Left = 461
       Top = 0
@@ -213,7 +261,7 @@ object Form1: TForm1
       Caption = 'Panel5'
       Padding.Left = 5
       TabOrder = 0
-      ExplicitLeft = 471
+      ExplicitLeft = 457
       object Button5: TButton
         Left = 5
         Top = 0
@@ -223,8 +271,6 @@ object Form1: TForm1
         Caption = 'Finalizar Pedido'
         TabOrder = 0
         OnClick = Button5Click
-        ExplicitLeft = 6
-        ExplicitTop = 1
       end
     end
     object Panel6: TPanel
@@ -237,7 +283,7 @@ object Form1: TForm1
       Caption = 'Panel5'
       Padding.Left = 5
       TabOrder = 1
-      ExplicitLeft = 471
+      ExplicitLeft = 300
       object Button6: TButton
         Left = 5
         Top = 0
@@ -246,10 +292,6 @@ object Form1: TForm1
         Align = alClient
         Caption = 'Cancelar Pedido'
         TabOrder = 0
-        ExplicitLeft = 6
-        ExplicitTop = 1
-        ExplicitWidth = 150
-        ExplicitHeight = 39
       end
     end
   end

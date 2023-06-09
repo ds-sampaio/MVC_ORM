@@ -6,5 +6,7 @@
 /controller/__recovery
 /controller/dto/__recovery
 /controller/dto/__history
+*.dcu
+*.local
 
 

@@ -6,7 +6,7 @@ uses
   SimpleAttributes;
 
 type
-  [Tabela('PEDIDO')]
+  [Tabela('PEDIDOS')]
   TPedido = class
     private
     Fid: integer;

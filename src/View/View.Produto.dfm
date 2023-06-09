@@ -63,10 +63,12 @@ object frmProduto: TfrmProduto
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 3
+    ExplicitTop = 141
+    ExplicitWidth = 616
     object Panel2: TPanel
       Left = 0
       Top = 257
-      Width = 624
+      Width = 620
       Height = 41
       Align = alBottom
       BevelOuter = bvNone
@@ -75,9 +77,9 @@ object frmProduto: TfrmProduto
       Padding.Right = 5
       Padding.Bottom = 5
       TabOrder = 0
-      ExplicitWidth = 620
+      ExplicitWidth = 616
       object Button1: TButton
-        Left = 544
+        Left = 540
         Top = 5
         Width = 75
         Height = 31
@@ -85,7 +87,7 @@ object frmProduto: TfrmProduto
         Caption = 'Salvar'
         TabOrder = 0
         OnClick = Button1Click
-        ExplicitLeft = 540
+        ExplicitLeft = 536
       end
       object Button2: TButton
         Left = 5
@@ -98,7 +100,7 @@ object frmProduto: TfrmProduto
         OnClick = Button2Click
       end
       object Button3: TButton
-        Left = 469
+        Left = 465
         Top = 5
         Width = 75
         Height = 31
@@ -106,13 +108,13 @@ object frmProduto: TfrmProduto
         Caption = 'Excluir'
         TabOrder = 2
         OnClick = Button3Click
-        ExplicitLeft = 540
+        ExplicitLeft = 461
       end
     end
     object Panel3: TPanel
       Left = 0
       Top = 0
-      Width = 624
+      Width = 620
       Height = 257
       Align = alClient
       BevelOuter = bvNone
@@ -121,11 +123,11 @@ object frmProduto: TfrmProduto
       Padding.Right = 5
       Padding.Bottom = 5
       TabOrder = 1
-      ExplicitWidth = 620
+      ExplicitWidth = 616
       object DBGrid1: TDBGrid
         Left = 5
         Top = 5
-        Width = 614
+        Width = 610
         Height = 247
         Align = alClient
         TabOrder = 0

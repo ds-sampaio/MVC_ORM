@@ -3,7 +3,7 @@ unit Model.Produto;
 interface
 
 uses
-  SimpleAttributes;
+  SimpleAttributes, System.SysUtils;
 
 type
   [Tabela('PRODUTO')]
@@ -19,8 +19,22 @@ type
       property descricao: string read Fdescricao write Fdescricao;
       [Campo('PRECO'), Format('#.##0,00')]
       property preco: double read Fpreco write Fpreco;
+      procedure ValidaCampos;
   end;
 
 implementation
+
+{ TProduto }
+
+
+procedure TProduto.ValidaCampos;
+begin
+  if Fdescricao = EmptyStr then
+     raise Exception.Create('Descrição não poder ficar em branco');
+
+  if Fpreco = 0 then
+     raise Exception.Create('Preço não poder ficar em branco');
+
+end;
 
 end.

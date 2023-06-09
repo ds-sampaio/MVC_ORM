@@ -34,6 +34,10 @@ type
     Button5: TButton;
     Panel6: TPanel;
     Button6: TButton;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Label6: TLabel;
+    edtTotal: TEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -53,9 +57,10 @@ type
     FDtsItens   : TDataSource;
     procedure setMemTable;
     function AddItem: Boolean;
-    function CalcularTotal(aValor : Double; aQtd : Integer) : Double;
   public
     { Public declarations }
+    function CalcularTotal(aValor : Double; aQtd : Integer) : Double;
+    procedure SavePedido;
   end;
 
 var
@@ -108,16 +113,8 @@ begin
 end;
 
 procedure TForm1.Button5Click(Sender: TObject);
-var
- lId       : Integer;
- LIdPedido : Integer;
 begin
-  try
-    LIdPedido := FController.Pedido.IdCliente(StrToInt(edtCodCliente.Text))
-                    .Build.Inserir.This.Id;
-  except
-    raise Exception.Create('Não foi possível realizar pedido');
-  end;
+  SavePedido;
 end;
 
 function TForm1.CalcularTotal(aValor: Double; aQtd: Integer): Double;
@@ -184,6 +181,33 @@ begin
    perform(WM_NEXTDLGCTL,0,0);
 end;
 
+procedure TForm1.SavePedido;
+var
+ lId       : Integer;
+begin
+  try
+    lId := FController.Pedido.IdCliente(StrToInt(edtCodCliente.Text))
+                    .Build.Inserir.This.Id;
+
+    FMemTable.First;
+    while not FMemTable.Eof do
+    begin
+     FController.ItensPedido
+       .idPedido(lId)
+       .idItem(FMemTable.FieldByName('id_item').AsInteger)
+       .quantidade(FMemTable.FieldByName('quantidade').AsInteger)
+       .valor(FMemTable.FieldByName('valor').AsFloat)
+       .Build.Inserir;
+
+       FMemTable.Next;
+    end;
+    ShowMessage('Pedido gravado com sucesso!');
+  except
+    raise Exception.Create('Não foi possível realizar pedido');
+  end;
+
+end;
+
 procedure TForm1.setMemTable;
 begin
   FMemTable := TFDMemTable.Create(nil);
@@ -199,12 +223,14 @@ begin
   FMemTable.Open();
   FDtsItens.DataSet := FMemTable;
   DBGrid1.DataSource := FDtsItens;
+
 end;
 
 function TForm1.AddItem: Boolean;
 var
   LQtd : Integer;
   LValor : Double;
+  LVal   : Currency;
 begin
   Result := False;
   try
@@ -214,6 +240,8 @@ begin
     if TryStrToFloat(edtValorUnitario.Text, LValor) then
        LValor := 0;
 
+    LVal := TFormatCustom.StrToCurrency(edtTotal.Text);
+
     FMemTable.Append();
     FMemTable.FieldByName('codigo').AsString := edtCodProduto.Text;
     FMemTable.FieldByName('descricao').AsString := FDataSource.DataSet.FieldByName('descricao').AsString;
@@ -221,6 +249,8 @@ begin
     FMemTable.FieldByName('valor_unitario').AsCurrency := TFormatCustom.StrToCurrency(edtValorUnitario.Text);
     FMemTable.FieldByName('valor_total').AsFloat := CalcularTotal(FMemTable.FieldByName('valor_unitario').AsFloat,LQtd);
     FMemTable.Post();
+    LVal := LVal + FMemTable.FieldByName('valor_total').AsFloat;
+    edtTotal.Text := FormatFloat('#,##0.00',LVal);
     Result := True;
   except
     on E : Exception do

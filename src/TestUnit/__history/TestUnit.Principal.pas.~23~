@@ -1,0 +1,71 @@
+unit TestUnit.Principal;
+
+interface
+
+uses
+  DUnitX.TestFramework,
+  Model.Produto,
+  SimpleAttributes,
+  controller.dto.interfaces,
+  controller.dto.produto;
+
+type
+  [TestFixture]
+  TMyTestObject = class
+  private
+    FProduto    : TProduto;
+    FProdutoDTO : iProduto;
+  public
+    [Setup]
+    procedure Setup;
+    [TearDown]
+    procedure TearDown;
+
+    [Test]
+    procedure ValidarCampos;
+
+    [Test]
+    procedure Inserir;
+  end;
+
+implementation
+
+procedure TMyTestObject.Inserir;
+var
+ LId : Integer;
+begin
+ LId :=  FProdutoDTO
+          .descricao('999999')
+          .preco(999999)
+          .Build
+          .Inserir
+          .This.id;
+
+  Assert.IsTrue(FProdutoDTO.Build.ListarPorId(LId).This.id = LId, 'TProdutoDTO.Inserir deu erro');
+
+end;
+
+procedure TMyTestObject.Setup;
+begin
+  FProduto    := TProduto.Create;
+  FProdutoDTO := TProdutoDTO.New;
+end;
+
+procedure TMyTestObject.TearDown;
+begin
+  FProduto.Free;
+end;
+
+
+
+procedure TMyTestObject.ValidarCampos;
+begin
+  FProduto.descricao := '';
+  FProduto.preco := 0;
+  Assert.WillRaise(FProduto.ValidaCampos,nil,'TProduto.ValidaCampos deu erro');
+end;
+
+initialization
+  TDUnitX.RegisterTestFixture(TMyTestObject);
+
+end.

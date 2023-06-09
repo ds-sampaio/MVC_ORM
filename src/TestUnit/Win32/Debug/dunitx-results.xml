@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="D:\projetos-delphi\MVC_ORM\src\TestUnit\Win32\Debug\TestUnit.exe" total="5" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2023-06-09" time="15.321">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="TestUnit.exe" executed="true" result="Success" success="True" time="15.321" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="TestePedido" executed="true" result="Success" success="True" time="15.321" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TMyTestPedido" executed="True" result="Success" success="True" time="15.321" >
+                <results>
+                  <test-case name="SavePedidoVazio" executed="True" result="Success" success="True" time="12.729" asserts="0" />
+                  <test-case name="Test2.TestA" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="Test2.TestB" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+        <test-suite type="Namespace" name="TestUnit" executed="true" result="Success" success="True" time="2.422" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TMyTestObject" executed="True" result="Success" success="True" time="2.422" >
+                <results>
+                  <test-case name="ValidarCampos" executed="True" result="Success" success="True" time="2.190" asserts="0" />
+                  <test-case name="Inserir" executed="True" result="Success" success="True" time="0.032" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,43 @@
+unit Model.Produto;
+
+interface
+
+uses
+  SimpleAttributes, System.SysUtils;
+
+type
+  [Tabela('PRODUTO')]
+  TProduto = class
+    private
+    Fid: integer;
+    Fdescricao: string;
+    Fpreco: double;
+    function GetDescricao: string;
+    procedure SetDescricao(const Value: string);
+    public
+      [Campo('ID'), Pk, AutoInc]
+      property id: integer read Fid write Fid;
+      [Campo('DESCRICAO')]
+      property Descricao: string read GetDescricao write SetDescricao;
+      [Campo('PRECO'), Format('#.##0,00')]
+      property preco: double read Fpreco write Fpreco;
+  end;
+
+implementation
+
+{ TProduto }
+
+function TProduto.GetDescricao: string;
+begin
+  Result := Fdescricao;
+end;
+
+procedure TProduto.SetDescricao(const Value: string);
+begin
+  if Value = EmptyStr then
+     raise Exception.Create('Descrição não poder ficar em branco');
+
+  Fdescricao := Value;
+end;
+
+end.
